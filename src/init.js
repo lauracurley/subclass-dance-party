@@ -16,9 +16,9 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name'); //makeBlinkyDancer
-
+    //var dancerType = $(this).data('dancer-type');
     // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = window[dancerMakerFunctionName];
+    var dancerMakerFunction = window[dancerMakerFunctionName]; //eg window.makeBlinkyDancer
 
     // make a dancer with a random position
 
@@ -27,7 +27,23 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.lineUp').on('click', function(event) {
+    window.makeDancer.prototype.lineUp();
+  });
+
+  // Adds a shake animation to Carlton when he's clicked on
+  $('.test').on('click', function(event) {
+    $(this).addClass('animated shake').
+    one('webkitAnimationEnd animationend',
+    function() {
+      $(this).removeClass('animated shake');
+    });
+  });
 });
+
+
 

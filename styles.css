@@ -39,6 +39,7 @@ body, a:link, a:visited, a:active{
 .napoleanCrown {
   position: ;
 }
+
 .test {
   top: 50px;
   left: 50px;
@@ -49,9 +50,15 @@ body, a:link, a:visited, a:active{
 
 }
 
-.dummyClass{
-  -webkit-animation-duration: 3s;
-  -webkit-animation-delay: 2s;
-  -webkit-animation-iteration-count: 2;
+.taxiLeft {
+  top: 570px;
+  position: absolute;
+  max-width: 200px;
+  animation-duration: 10s !important;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+
+
+
 }
 

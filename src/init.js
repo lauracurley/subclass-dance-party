@@ -33,13 +33,19 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
 
     $('.napoleon').on('click', function(event) {
-      console.log('heard click');
-      $('.napoleon').addClass('animated shake fadeInRightBig').
+      $('.napoleon').addClass('animated shake rotateIn').
         one('webkitAnimationEnd animationend',
         function() {
           $(this).removeClass('animated shake fadeInRightBig');
         });
     });
+
+
+
+    
+
+
+    
   });
 
   $('.lineUp').on('click', function(event) {
@@ -53,6 +59,8 @@ $(document).ready(function() {
   // Adds a shake animation to Carlton when he's clicked on
 
 });
+
+var distance = Math.sqrt(Math.pow( Math.abs(top - top), 2) + Math.pow( Math.abs(left - left), 2));
 
 
 

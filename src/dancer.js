@@ -5,21 +5,19 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer"></span>');
+  //this.$node = node;
+  //this.$node = $('');
   this.step();
-  
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
-  this.setPosition(top, left);
+  //this.setPosition(top, left);
 };
 
 makeDancer.prototype.step = function() {
-  console.log('Not that', this);
   var that = this;
   setTimeout(function() {
     that.step();
   }, that.timeBetweenSteps);
-
 };
 
 makeDancer.prototype.setPosition = function(top, left) {
@@ -29,5 +27,32 @@ makeDancer.prototype.setPosition = function(top, left) {
     top: top,
     left: left
   };
+  console.log('STYLESETTINGS: ', styleSettings);
   this.$node.css(styleSettings);
+};
+
+makeDancer.prototype.lineUp = function () {
+
+  var carltonSettings = {
+    position: 'absolute',
+    top: '0',
+    left: '100px'
+  };
+
+  var napoleonSettings = {
+    position: 'absolute',
+    top: '0',
+    left: '500px'
+  };
+
+  for (var i = 0; i < window.dancers.length; i++) { 
+    console.log(window.dancers[i]);
+    if (window.dancers[i] instanceof makeCarltonDancer) {
+      carltonSettings.top = (parseInt(carltonSettings.top) + 50).toString() + 'px';
+      window.dancers[i].$node.css(carltonSettings);
+    } else if (window.dancers[i] instanceof makeNapoleonDancer) {
+      napoleonSettings.top = (parseInt(napoleonSettings.top) + 50).toString() + 'px';
+      window.dancers[i].$node.css(napoleonSettings);
+    }
+  }
 };

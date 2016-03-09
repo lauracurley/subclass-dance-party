@@ -27,22 +27,31 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
+
     window.dancers.push(dancer);
+
     $('body').append(dancer.$node);
+
+    $('.napoleon').on('click', function(event) {
+      console.log('heard click');
+      $('.napoleon').addClass('animated shake fadeInRightBig').
+        one('webkitAnimationEnd animationend',
+        function() {
+          $(this).removeClass('animated shake fadeInRightBig');
+        });
+    });
   });
 
   $('.lineUp').on('click', function(event) {
     window.makeDancer.prototype.lineUp();
   });
 
-  // Adds a shake animation to Carlton when he's clicked on
-  $('.test').on('click', function(event) {
-    $(this).addClass('animated shake').
-    one('webkitAnimationEnd animationend',
-    function() {
-      $(this).removeClass('animated shake');
-    });
+  $('.streetParty').on('click', function(event) {
+    window.makeDancer.prototype.napoleonCrowd();
   });
+
+  // Adds a shake animation to Carlton when he's clicked on
+
 });
 
 

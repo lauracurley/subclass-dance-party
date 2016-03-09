@@ -56,3 +56,20 @@ makeDancer.prototype.lineUp = function () {
     }
   }
 };
+
+makeDancer.prototype.napoleonCrowd = function () {
+
+  var napoleonSettings = {
+    position: 'absolute',
+    top: '62%',
+    left: '-100px'
+  };
+
+  for (var i = 0; i < window.dancers.length; i++) { 
+    if (window.dancers[i] instanceof makeNapoleonDancer) {
+      napoleonSettings.left = (parseInt(napoleonSettings.left) + 100).toString() + 'px';
+      window.dancers[i].$node.css(napoleonSettings);
+    }
+  }
+};
+
